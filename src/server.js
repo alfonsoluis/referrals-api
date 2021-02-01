@@ -3,7 +3,7 @@ import { json, urlencoded } from 'body-parser'
 import morgan from 'morgan'
 import config from './config'
 import cors from 'cors'
-import { signup, signin, protect } from './utils/auth.js'
+import { signup, checkReferral, signin, protect } from './utils/auth.js'
 import { connect } from './utils/db'
 import userRouter from './resources/user/user.router'
 import referralRouter from './resources/referral/referral.router'
@@ -19,6 +19,7 @@ app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
 app.post('/signup', signup)
+app.get('/checkReferral', checkReferral)
 app.post('/signin', signin)
 
 app.use('/api', protect)

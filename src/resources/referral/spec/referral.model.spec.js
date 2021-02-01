@@ -4,12 +4,12 @@ import mongoose from 'mongoose'
 describe('Referral model', () => {
   describe('schema', () => {
 
-    test('status', () => {
-      const status = Referral.schema.obj.status
-      expect(status).toEqual({
+    test('isActive', () => {
+      const isActive = Referral.schema.obj.isActive
+      expect(isActive).toEqual({
         type: Boolean,
         required: true,
-        default: 'true'
+        default: true
       })
     })
 

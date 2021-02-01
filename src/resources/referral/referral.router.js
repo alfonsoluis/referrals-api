@@ -7,7 +7,7 @@ const router = Router()
 router
   .route('/')
   .get(controllers.getOne)
-  .post(controllers.createOne)
+  .post(controllers.create)
 
 // /api/referrals/:id
 router

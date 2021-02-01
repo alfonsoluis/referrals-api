@@ -1,5 +1,5 @@
 import { getOne, getMany, createOne, updateOne, removeOne } from '../crud'
-import { List } from '../../resources/list/list.model'
+import { Referral } from '../../resources/referral/referral.model'
 import { User } from '../../resources/user/user.model'
 import mongoose from 'mongoose'
 
@@ -9,7 +9,7 @@ describe('crud controllers', () => {
       expect.assertions(2)
 
       const user = mongoose.Types.ObjectId()
-      const list = await List.create({ name: 'list', createdBy: user })
+      const referral = await Referral.create({ name:   'list', createdBy: user })
 
       const req = {
         params: {

@@ -1,21 +1,9 @@
 import mongoose from 'mongoose'
-
-export const convertionSchema = new mongoose.Schema(
-  {
-    createdBy: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'user',
-      required: true
-    }
-  },
-  { timestamps: true }
-)
-
-export const Convertion = mongoose.model('convertion', convertionSchema)
+import { convertionSchema, Convertion } from './convertion.model'
 
 const referralSchema = new mongoose.Schema(
   {
-    status: {
+    isActive: {
       type: Boolean,
       required: true,
       default: true
@@ -32,5 +20,17 @@ const referralSchema = new mongoose.Schema(
 )
 
 referralSchema.index({ _id: "hashed", createdBy: 1 }, { unique: true })
+
+referralSchema.methods.addConvertion = async function(user) {
+  try {
+    const convertion = await Convertion.create({createdBy: user._id})
+    this.convertions.push(convertion)
+    this.save()
+    return this.convertions.length
+  } catch (e) {
+    console.error(e)
+    res.status(400).end()
+  }
+}
 
 export const Referral = mongoose.model('referral', referralSchema)

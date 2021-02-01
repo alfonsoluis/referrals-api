@@ -9,7 +9,11 @@ const baseConfig = {
   secrets: {
     jwt: process.env.JWT_SECRET,
     jwtExp: '100d'
-  }
+  },
+  baseUrl: 'localhost',
+  convertionPrice: 10,
+  referralLifespan: 5, // Expressed in days,
+  SSLEnabled: false
 }
 
 let envConfig = {}
