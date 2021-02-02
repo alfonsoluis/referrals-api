@@ -8,10 +8,10 @@ describe('referral controllers', () => {
       'getMany',
       'createOne',
       'removeOne',
-      'updateOne'
+      'updateOne',
     ]
 
-    crudMethods.forEach(name =>
+    crudMethods.forEach((name) =>
       expect(isFunction(controllers[name])).toBe(true)
     )
   })

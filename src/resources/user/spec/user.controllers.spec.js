@@ -1,18 +1,25 @@
-import controllers from '../user.controllers'
-import { isFunction } from 'lodash'
+import { user, updateUser } from '../user.controllers'
+import mongoose from 'mongoose'
 
 describe('user controllers:', () => {
-  test('has crud methods', () => {
-    const crudMethods = [
-      'getOne',
-      'getMany',
-      'createOne',
-      'removeOne',
-      'updateOne'
-    ]
+  test('has user (getUser) methods', async () => {
+    expect.assertions(2)
 
-    crudMethods.forEach(name =>
-      expect(isFunction(controllers[name])).toBe(true)
-    )
+    const u = mongoose.Types.ObjectId()
+    const req = {
+      user: u,
+    }
+
+    const res = {
+      status(status) {
+        expect(status).toBe(200)
+        return this
+      },
+      json(result) {
+        expect(result.data).toBe(u)
+      },
+    }
+
+    await user(req, res)
   })
 })

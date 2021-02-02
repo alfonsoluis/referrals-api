@@ -1,6 +1,6 @@
 export const config = {
   secrets: {
-    jwt: 'thisisthesecret'
+    jwt: 'thisisthesecret',
   },
-  dbUrl: 'mongodb://localhost:27017/referral-api-db-testing'
+  dbUrl: 'mongodb://localhost:27017/referral-api-db-testing',
 }

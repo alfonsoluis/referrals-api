@@ -1,4 +1,4 @@
-export const getOne = model => async (req, res) => {
+export const getOne = (model) => async (req, res) => {
   try {
     const doc = await model
       .findOne({ createdBy: req.user._id, _id: req.params.id })
@@ -16,12 +16,9 @@ export const getOne = model => async (req, res) => {
   }
 }
 
-export const getMany = model => async (req, res) => {
+export const getMany = (model) => async (req, res) => {
   try {
-    const docs = await model
-      .find({ createdBy: req.user._id })
-      .lean()
-      .exec()
+    const docs = await model.find({ createdBy: req.user._id }).lean().exec()
 
     res.status(200).json({ data: docs })
   } catch (e) {
@@ -30,7 +27,7 @@ export const getMany = model => async (req, res) => {
   }
 }
 
-export const createOne = model => async (req, res) => {
+export const createOne = (model) => async (req, res) => {
   const createdBy = req.user._id
   try {
     const doc = await model.create({ ...req.body, createdBy })
@@ -41,13 +38,13 @@ export const createOne = model => async (req, res) => {
   }
 }
 
-export const updateOne = model => async (req, res) => {
+export const updateOne = (model) => async (req, res) => {
   try {
     const updatedDoc = await model
       .findOneAndUpdate(
         {
           createdBy: req.user._id,
-          _id: req.params.id
+          _id: req.params.id,
         },
         req.body,
         { new: true }
@@ -66,11 +63,11 @@ export const updateOne = model => async (req, res) => {
   }
 }
 
-export const removeOne = model => async (req, res) => {
+export const removeOne = (model) => async (req, res) => {
   try {
     const removed = await model.findOneAndRemove({
       createdBy: req.user._id,
-      _id: req.params.id
+      _id: req.params.id,
     })
 
     if (!removed) {
@@ -84,10 +81,10 @@ export const removeOne = model => async (req, res) => {
   }
 }
 
-export const crudControllers = model => ({
+export const crudControllers = (model) => ({
   removeOne: removeOne(model),
   updateOne: updateOne(model),
   getMany: getMany(model),
   getOne: getOne(model),
-  createOne: createOne(model)
+  createOne: createOne(model),
 })

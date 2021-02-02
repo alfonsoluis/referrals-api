@@ -1,23 +1,22 @@
 import { getOne, getMany, createOne, updateOne, removeOne } from '../crud'
 import { Referral } from '../../resources/referral/referral.model'
-import { User } from '../../resources/user/user.model'
 import mongoose from 'mongoose'
 
 describe('crud controllers', () => {
-  describe('getOne', async () => {
+  describe('getOne', () => {
     test('finds by authenticated user and id', async () => {
       expect.assertions(2)
 
       const user = mongoose.Types.ObjectId()
-      const referral = await Referral.create({ name:   'list', createdBy: user })
+      const referral = await Referral.create({ createdBy: user })
 
       const req = {
         params: {
-          id: list._id
+          id: referral._id,
         },
         user: {
-          _id: user
-        }
+          _id: user,
+        },
       }
 
       const res = {
@@ -26,11 +25,11 @@ describe('crud controllers', () => {
           return this
         },
         json(result) {
-          expect(result.data._id.toString()).toBe(list._id.toString())
-        }
+          expect(result.data._id.toString()).toBe(referral._id.toString())
+        },
       }
 
-      await getOne(List)(req, res)
+      await getOne(Referral)(req, res)
     })
 
     test('404 if no doc was found', async () => {
@@ -40,11 +39,11 @@ describe('crud controllers', () => {
 
       const req = {
         params: {
-          id: mongoose.Types.ObjectId()
+          id: mongoose.Types.ObjectId(),
         },
         user: {
-          _id: user
-        }
+          _id: user,
+        },
       }
 
       const res = {
@@ -54,10 +53,10 @@ describe('crud controllers', () => {
         },
         end() {
           expect(true).toBe(true)
-        }
+        },
       }
 
-      await getOne(List)(req, res)
+      await getOne(Referral)(req, res)
     })
   })
 
@@ -66,16 +65,16 @@ describe('crud controllers', () => {
       expect.assertions(4)
 
       const user = mongoose.Types.ObjectId()
-      await List.create([
-        { name: 'list', createdBy: user },
-        { name: 'other', createdBy: user },
-        { name: 'list', createdBy: mongoose.Types.ObjectId() }
+      await Referral.create([
+        { createdBy: user },
+        { createdBy: user },
+        { createdBy: mongoose.Types.ObjectId() },
       ])
 
       const req = {
         user: {
-          _id: user
-        }
+          _id: user,
+        },
       }
 
       const res = {
@@ -85,11 +84,13 @@ describe('crud controllers', () => {
         },
         json(result) {
           expect(result.data).toHaveLength(2)
-          result.data.forEach(doc => expect(`${doc.createdBy}`).toBe(`${user}`))
-        }
+          result.data.forEach((doc) =>
+            expect(`${doc.createdBy}`).toBe(`${user}`)
+          )
+        },
       }
 
-      await getMany(List)(req, res)
+      await getMany(Referral)(req, res)
     })
   })
 
@@ -98,11 +99,11 @@ describe('crud controllers', () => {
       expect.assertions(2)
 
       const user = mongoose.Types.ObjectId()
-      const body = { name: 'name' }
+      const body = { user: user }
 
       const req = {
         user: { _id: user },
-        body
+        body,
       }
 
       const res = {
@@ -111,11 +112,11 @@ describe('crud controllers', () => {
           return this
         },
         json(results) {
-          expect(results.data.name).toBe(body.name)
-        }
+          expect(results.data.createdBy).toBe(body.user)
+        },
       }
 
-      await createOne(List)(req, res)
+      await createOne(Referral)(req, res)
     })
 
     test('createdBy should be the authenticated user', async () => {
@@ -126,7 +127,7 @@ describe('crud controllers', () => {
 
       const req = {
         user: { _id: user },
-        body
+        body,
       }
 
       const res = {
@@ -136,25 +137,25 @@ describe('crud controllers', () => {
         },
         json(results) {
           expect(`${results.data.createdBy}`).toBe(`${user}`)
-        }
+        },
       }
 
-      await createOne(List)(req, res)
+      await createOne(Referral)(req, res)
     })
   })
 
   describe('updateOne', () => {
     test('finds doc by authenticated user and id to update', async () => {
-      expect.assertions(3)
+      expect.assertions(2)
 
       const user = mongoose.Types.ObjectId()
-      const list = await List.create({ name: 'name', createdBy: user })
-      const update = { name: 'hello' }
+      const referral = await Referral.create({ createdBy: user })
+      const update = { createdBy: user }
 
       const req = {
-        params: { id: list._id },
+        params: { id: referral._id },
         user: { _id: user },
-        body: update
+        body: update,
       }
 
       const res = {
@@ -163,12 +164,11 @@ describe('crud controllers', () => {
           return this
         },
         json(results) {
-          expect(`${results.data._id}`).toBe(`${list._id}`)
-          expect(results.data.name).toBe(update.name)
-        }
+          expect(results.data.createdBy).toStrictEqual(user)
+        },
       }
 
-      await updateOne(List)(req, res)
+      await updateOne(Referral)(req, res)
     })
 
     test('400 if no doc', async () => {
@@ -180,7 +180,7 @@ describe('crud controllers', () => {
       const req = {
         params: { id: mongoose.Types.ObjectId() },
         user: { _id: user },
-        body: update
+        body: update,
       }
 
       const res = {
@@ -190,10 +190,10 @@ describe('crud controllers', () => {
         },
         end() {
           expect(true).toBe(true)
-        }
+        },
       }
 
-      await updateOne(List)(req, res)
+      await updateOne(Referral)(req, res)
     })
   })
 
@@ -202,11 +202,11 @@ describe('crud controllers', () => {
       expect.assertions(2)
 
       const user = mongoose.Types.ObjectId()
-      const list = await List.create({ name: 'name', createdBy: user })
+      const referral = await Referral.create({ name: 'name', createdBy: user })
 
       const req = {
-        params: { id: list._id },
-        user: { _id: user }
+        params: { id: referral._id },
+        user: { _id: user },
       }
 
       const res = {
@@ -215,11 +215,11 @@ describe('crud controllers', () => {
           return this
         },
         json(results) {
-          expect(`${results.data._id}`).toBe(`${list._id}`)
-        }
+          expect(`${results.data._id}`).toBe(`${referral._id}`)
+        },
       }
 
-      await removeOne(List)(req, res)
+      await removeOne(Referral)(req, res)
     })
 
     test('400 if no doc', async () => {
@@ -228,7 +228,7 @@ describe('crud controllers', () => {
 
       const req = {
         params: { id: mongoose.Types.ObjectId() },
-        user: { _id: user }
+        user: { _id: user },
       }
 
       const res = {
@@ -238,10 +238,10 @@ describe('crud controllers', () => {
         },
         end() {
           expect(true).toBe(true)
-        }
+        },
       }
 
-      await removeOne(List)(req, res)
+      await removeOne(Referral)(req, res)
     })
   })
 })

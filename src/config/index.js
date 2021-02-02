@@ -8,12 +8,12 @@ const baseConfig = {
   port: 3000,
   secrets: {
     jwt: process.env.JWT_SECRET,
-    jwtExp: '100d'
+    jwtExp: '100d',
   },
   baseUrl: 'localhost',
-  convertionPrice: 10,
+  conversionPrice: 10,
   referralLifespan: 5, // Expressed in days,
-  SSLEnabled: false
+  SSLEnabled: false,
 }
 
 let envConfig = {}

@@ -7,7 +7,6 @@ import { signup, checkReferral, signin, protect } from './utils/auth.js'
 import { connect } from './utils/db'
 import userRouter from './resources/user/user.router'
 import referralRouter from './resources/referral/referral.router'
-// import convertionRouter from './resources/convertion/convertion.router'
 
 export const app = express()
 
@@ -31,7 +30,9 @@ export const start = async () => {
   try {
     await connect()
     app.listen(config.port, () => {
-      console.log(`⚡️⚡️ REST API is running on http://localhost:${config.port}/api`)
+      console.log(
+        `⚡️⚡️ REST API is running on http://${config.baseUrl}:${config.port}/api`
+      )
     })
   } catch (e) {
     console.error(e)

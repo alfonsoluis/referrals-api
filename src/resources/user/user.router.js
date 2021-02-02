@@ -3,7 +3,7 @@ import { user, updateUser } from './user.controllers'
 
 const router = Router()
 
-router.get('/', user)
-router.put('/', updateUser)
+router.get('/:id', user)
+router.put('/:id', updateUser)
 
 export default router
