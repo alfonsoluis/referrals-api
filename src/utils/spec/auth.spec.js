@@ -75,18 +75,18 @@ describe('Authentication:', () => {
         password: 'dumbpassword',
       }
       const newUser = await User.create(userFields)
-
-      const referralFields = {
-        user: newUser,
-      }
-      const referral = await Referral.create(referralFields)
+      const referral = await Referral.create({
+        createdBy: newUser.id,
+        due: new Date(),
+        conversions: [],
+      })
 
       const req = {
         body: {
           name: 'Pedro Gonzalez',
           email: 'pedro@gmail.com',
           password: 'dumbpassword',
-          referral: referral._id.toString(),
+          referral: referral._id,
         },
       }
       const res = {
@@ -96,7 +96,7 @@ describe('Authentication:', () => {
         },
         async send(result) {
           expect(result.referralStatus).toBe(
-            `${config.conversionPrice}$ were added to ${req.body.name} for using a referral. Kudos to ${userFields.name} for sharing`
+            `${referral._id} ${config.conversionPrice}$ were added to ${req.body.name} for using a referral. Kudos to ${userFields.name} for sharing`
           )
         },
       }
