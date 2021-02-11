@@ -32,4 +32,7 @@ referralSchema.methods.addConversion = async function(user) {
   }
 }
 
-export const Referral = mongoose.model('referral', referralSchema)
+// export const Referral = mongoose.model('referral', referralSchema)
+
+export const Referral =
+  mongoose.models.referral || mongoose.model('referral', referralSchema)

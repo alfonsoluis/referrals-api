@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import config from '../../config'
 import { User } from '../../resources/user/user.model'
+import { Referral } from '../../../dist/resources/referral/referral.model'
 
 describe('Authentication:', () => {
   describe('newToken', () => {
@@ -27,7 +28,7 @@ describe('Authentication:', () => {
   describe('signup', () => {
     test('requires name, email and password', async () => {
       expect.assertions(2)
-      const req = {body: {}}
+      const req = { body: {} }
       const res = {
         status(status) {
           expect(status).toBe(400)
@@ -59,6 +60,44 @@ describe('Authentication:', () => {
           let user = await verifyToken(result.token)
           user = await User.findById(user.id).lean().exec()
           expect(user.email).toBe('alfonsoluis@gmail.com')
+        },
+      }
+
+      await signup(req, res)
+    })
+
+    test('Creates user with referral', async () => {
+      expect.assertions(2)
+
+      const userFields = {
+        name: 'Alfonso Rodriguez',
+        email: 'alfonsoluis@gmail.comm',
+        password: 'dumbpassword',
+      }
+      const newUser = await User.create(userFields)
+
+      const referralFields = {
+        user: newUser,
+      }
+      const referral = await Referral.create(referralFields)
+
+      const req = {
+        body: {
+          name: 'Pedro Gonzalez',
+          email: 'pedro@gmail.com',
+          password: 'dumbpassword',
+          referral: referral._id.toString(),
+        },
+      }
+      const res = {
+        status(status) {
+          expect(status).toBe(201)
+          return this
+        },
+        async send(result) {
+          expect(result.referralStatus).toBe(
+            `${config.conversionPrice}$ were added to ${req.body.name} for using a referral. Kudos to ${userFields.name} for sharing`
+          )
         },
       }
 

@@ -11,4 +11,7 @@ export const conversionSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-export const Conversion = mongoose.model('conversion', conversionSchema)
+// export const Conversion = mongoose.model('conversion', conversionSchema)
+
+export const Conversion =
+  mongoose.models.conversion || mongoose.model('conversion', conversionSchema)
