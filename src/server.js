@@ -28,7 +28,7 @@ app.use('/api/referrals', referralRouter)
 export const start = async () => {
   try {
     await connect()
-    app.listen(config.port, () => {
+    app.listen(process.env.PORT || config.port, () => {
       console.log(
         `⚡️⚡️ REST API is running on http://${config.baseUrl}:${config.port}/api`
       )
