@@ -17,8 +17,8 @@ export default {
 
       res.status(201).json({
         data: referral,
-        link: `http${config.SSLEnabled ? 's' : ''}://${config.baseUrl}:${
-          !config.isProd ? config.port : ''
+        link: `http${config.SSLEnabled ? 's' : ''}://${config.baseUrl}${
+          !config.isProd ? `:${config.port}` : ''
         }/checkReferral?id=${referral._id}`,
       })
     } catch (e) {
