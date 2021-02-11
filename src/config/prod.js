@@ -1,6 +1,6 @@
 export const config = {
   referralLifespan: 10,
-  baseUrl: 'alfonso.media/referrals',
+  baseUrl: process.env.BASE_URL,
   secrets: {
     jwt: process.env.JWT_SECRET,
   },
