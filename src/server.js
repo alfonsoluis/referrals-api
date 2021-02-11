@@ -24,7 +24,6 @@ app.post('/signin', signin)
 app.use('/api', protect)
 app.use('/api/users', userRouter)
 app.use('/api/referrals', referralRouter)
-// app.use('/api/convertions', convertionRouter)
 
 export const start = async () => {
   try {
