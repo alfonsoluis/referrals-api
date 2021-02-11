@@ -30,8 +30,8 @@ export const start = async () => {
     await connect()
     app.listen(process.env.PORT || config.port, () => {
       console.log(
-        `⚡️⚡️ REST API is running on http://${config.baseUrl}:${
-          !config.isProd ? config.port : ''
+        `⚡️⚡️ REST API is running on http://${config.baseUrl}${
+          !config.isProd ? `:${config.port}` : ''
         }`
       )
     })
