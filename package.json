@@ -13,6 +13,9 @@
     "points",
     "customers"
   ],
+  "engines": {
+    "node": "15.8.0"
+  },
   "scripts": {
     "build": "babel src --out-dir dist",
     "test": "NODE_ENV=testing jest --forceExit --detectOpenHandles",

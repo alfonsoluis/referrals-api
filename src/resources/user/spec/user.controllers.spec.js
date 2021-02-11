@@ -1,4 +1,4 @@
-import { user, updateUser } from '../user.controllers'
+import { user } from '../user.controllers'
 import mongoose from 'mongoose'
 
 describe('user controllers:', () => {
