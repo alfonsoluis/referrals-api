@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="674bc03a-d72a-4f3a-a195-bdb24049dad6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/prod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/user/spec/user.controllers.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/user/spec/user.controllers.spec.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ns1k8rD6oI2HxOD8sM0M8ly7wY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="node" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Node.js.Node Debug config">
+    <configuration name="Authentication:.signup.creates user and sends new token from user" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/utils/spec/auth.spec.js" />
+      <test-names>
+        <test-name value="Authentication:" />
+        <test-name value="signup" />
+        <test-name value="creates user and sends new token from user" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Authentication:.signup.requires email and password" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/utils/spec/auth.spec.js" />
+      <test-names>
+        <test-name value="Authentication:" />
+        <test-name value="signup" />
+        <test-name value="requires email and password" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Node Debug config" type="NodeJSConfigurationType" path-to-js-file="dist/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.Authentication:.signup.creates user and sends new token from user" />
+      <item itemvalue="Jest.Authentication:.signup.requires email and password" />
+      <item itemvalue="Node.js.Node Debug config" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.Authentication:.signup.creates user and sends new token from user" />
+        <item itemvalue="Jest.Authentication:.signup.requires email and password" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="674bc03a-d72a-4f3a-a195-bdb24049dad6" name="Default Changelist" comment="" />
+      <created>1612164126693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612164126693</updated>
+      <workItem from="1612164128874" duration="6301000" />
+      <workItem from="1612192039855" duration="18543000" />
+      <workItem from="1612452573478" duration="356000" />
+      <workItem from="1612913629916" duration="598000" />
+      <workItem from="1612993840544" duration="5912000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix some linting issues and making sure all tests pass so far" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some linting issues and making sure all tests pass so far" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="701" y="409" width="726" height="510" key="#ESLint" timestamp="1612232162309">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="659" y="270" width="726" height="510" key="#ESLint/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612192564752" />
+    <state x="701" y="409" key="#ESLint/0.23.1680.1027@0.23.1680.1027" timestamp="1612232162309" />
+    <state x="557" y="225" key="#JavaScript" timestamp="1612167004801">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="557" y="225" key="#JavaScript/0.23.1680.1027@0.23.1680.1027" timestamp="1612167004801" />
+    <state x="440" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612209466409">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="440" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1612209466409" />
+    <state x="423" y="208" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1612209627146">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="423" y="208" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1612209627146" />
+    <state width="1638" height="149" key="GridCell.Tab.0.bottom" timestamp="1612224042323">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="272" key="GridCell.Tab.0.bottom/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612191984982" />
+    <state width="1638" height="149" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1612224042323" />
+    <state width="1638" height="149" key="GridCell.Tab.0.center" timestamp="1612224042322">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="272" key="GridCell.Tab.0.center/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612191984981" />
+    <state width="1638" height="149" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1612224042322" />
+    <state width="1638" height="149" key="GridCell.Tab.0.left" timestamp="1612224042321">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="272" key="GridCell.Tab.0.left/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612191984980" />
+    <state width="1638" height="149" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1612224042320" />
+    <state width="1638" height="149" key="GridCell.Tab.0.right" timestamp="1612224042322">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="272" key="GridCell.Tab.0.right/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612191984982" />
+    <state width="1638" height="149" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1612224042322" />
+    <state width="1638" height="239" key="GridCell.Tab.1.bottom" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.1.center" timestamp="1612209662051">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662051" />
+    <state width="1638" height="239" key="GridCell.Tab.1.left" timestamp="1612209662051">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662051" />
+    <state width="1638" height="239" key="GridCell.Tab.1.right" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.2.bottom" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.2.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.2.center" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.2.center/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.2.left" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.2.left/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.2.right" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.2.right/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.3.bottom" timestamp="1612209662053">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.3.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662053" />
+    <state width="1638" height="239" key="GridCell.Tab.3.center" timestamp="1612209662053">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.3.center/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662053" />
+    <state width="1638" height="239" key="GridCell.Tab.3.left" timestamp="1612209662052">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.3.left/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662052" />
+    <state width="1638" height="239" key="GridCell.Tab.3.right" timestamp="1612209662053">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="239" key="GridCell.Tab.3.right/0.23.1680.1027@0.23.1680.1027" timestamp="1612209662053" />
+    <state width="243" height="457" key="HiddenNamespacesPopup" timestamp="1612164261980">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="243" height="457" key="HiddenNamespacesPopup/0.23.1680.1027@0.23.1680.1027" timestamp="1612164261980" />
+    <state x="340" y="174" key="SettingsEditor" timestamp="1612209345059">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="341" y="175" key="SettingsEditor/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612193512814" />
+    <state x="340" y="174" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1612209345059" />
+    <state x="616" y="301" width="1378" height="1008" key="dock-window-1" timestamp="1612232553973">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="616" y="301" width="1378" height="1008" key="dock-window-1/0.23.1680.1027@0.23.1680.1027" timestamp="1612232553973" />
+    <state x="538" y="142" width="604" height="735" key="find.popup" timestamp="1612267393529">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="538" y="142" width="604" height="735" key="find.popup/0.23.1680.1027/0.-1057.1920.1057@0.23.1680.1027" timestamp="1612267393529" />
+    <state x="538" y="142" width="604" height="735" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1612231931134" />
+  </component>
+</project>
