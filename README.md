@@ -11,72 +11,82 @@ The project includes a basic crud abstraction, JWT authentication, Basic tests a
 
 After cloning the repo, go to the terminal and run *npm install* from the project directory.
 
+A local Mongo DB Instance must be installed.
+
 Then use a tool line Postman to test the following endpoints:
+
+`Unprotected endpoints`
 
 ##### Sign in
 POST http://localhost:3000/sigin
+{
+    "email": "jon@gmail.com",
+    "password": "123456",
+}
+
+##### Normal Sign up
+POST http://localhost:3000/signup
 {
     "name": "John",
     "email": "jon@gmail.com",
     "password": "123456",
 }
 
-Windows:
+##### Sign up with a referral
+POST http://localhost:3000/signup
+{
+    "name": "John",
+    "email": "jon@gmail.com",
+    "password": "123456",
+    "referral": "131312234234"
+}
 
-```sh
-edit autoexec.bat
-```
+The sign up with a referral ID may lead to different results:
 
-## Usage example
+- A successful sign up with a valid referral will add a configurable amount of credits to the registering user. If 5 conventions are reached, the creator of the referral will get a reward as well. The response contains a message about the amount added to the new user credit.
+- A successful  sign up with an invalid referral code
+- A successful sign up with a non ative referral link
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+GET http://localhost:3000/checkReferral?id=60177611cfaa9364ed850ef2
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+Verify if a referral ID is valid  
 
-## Development setup
+`Protected endpoints`
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+POST http://localhost:3000/api/referrals
+{} 
 
-```sh
-make install
-npm test
-```
+Creates a new referral with the connected user and returns a referral link.
 
-## Release History
+There are other CRUD endpoints available to interact with the models  
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+## Test environment
 
-## Meta
+An instance of the project has been deployed to Heroku for easy testing. The root URL to the API is :
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+[Test environment](http://secret-woodland-86502.herokuapp.com)
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+``http://secret-woodland-86502.herokuapp.com``
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+## Source code
 
-## Contributing
+just in case you loose track of the original repository, here is the link to the source code at [Github](https://github.com/alfonsoluis/referrals-api)
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+## Postman test setup for local and cloud environments
+
+[Postman collection](https://www.getpostman.com/collections/012ba3952a0a1deed8e8)
+
+Keep in mind that for the secure endpoints to work. An instance of MongoDB must be configured and the local database must be set in the *dbUrl* key of `config/dev.js` file.
+
+Also, a token must be set up for the secured endpoints and configured in the header of the requests.
+
+## Tests
+
+Some basic tests has been added for most of the scenarios. The available test commands are:
+
+yarn test / Run all tests 
+yarn test-routes / Test basic routing tests
+yarn test-models / Tests models
+yarn test-controllers / tests controller
+yarn test-auth / Test unprotected endpoints
