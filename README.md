@@ -85,8 +85,12 @@ Also, a token must be set up for the secured endpoints and configured in the hea
 
 Some basic tests has been added for most of the scenarios. The available test commands are:
 
-yarn test / Run all tests 
-yarn test-routes / Test basic routing tests
-yarn test-models / Tests models
-yarn test-controllers / tests controller
-yarn test-auth / Test unprotected endpoints
+`yarn test` / Run all tests
+
+`yarn test-routes` / Test basic routing tests
+
+`yarn test-models` / Tests models
+
+`yarn test-controllers` / tests controller
+
+`yarn test-auth` / Test unprotected endpoints
