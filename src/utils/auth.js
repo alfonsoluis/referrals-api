@@ -34,35 +34,36 @@ export const signup = async (req, res) => {
     const token = newToken(newUser)
 
     // If signing up with a referral
-    if (
-      req.body.referral &&
-      mongoose.Types.ObjectId.isValid(req.body.referral)
-    ) {
-      const referral = await Referral.findOne({ _id: req.body.referral })
-      if (referral) {
-        if (!referral.isActive) {
-          referralStatus =
-            'User created but no credit was granted because the referral used has expired'
-        } else {
-          const referralCreator = await User.findOne({ _id: referral.createdBy })
-          newUser.credit += config.conversionPrice
-          await newUser.save()
-
-          referralStatus = `${config.conversionPrice}$ were added to ${newUser.name} for using a referral. Kudos to ${referralCreator.name} for sharing`
-          const totalUserConverted = await referral.addConversion(newUser)
-
-          if (totalUserConverted === 5) {
-            referralCreator.credit += config.conversionPrice
-            await referralCreator.save()
+    if (req.body.referral) {
+      if (mongoose.Types.ObjectId.isValid(req.body.referral)) {
+        const referral = await Referral.findOne({ _id: req.body.referral })
+        if (referral) {
+          if (!referral.isActive) {
+            referralStatus =
+              'User created but no credit was granted because the referral used has expired'
+          } else {
+            const referralCreator = await User.findOne({
+              _id: referral.createdBy,
+            })
+            newUser.credit += config.conversionPrice
+            await newUser.save()
+            referralStatus = `${config.conversionPrice}$ were added to ${newUser.name} for using a referral. Kudos to ${referralCreator.name} for sharing`
+            const totalUserConverted = await referral.addConversion(newUser)
+            if (totalUserConverted === 5) {
+              referralCreator.credit += config.conversionPrice
+              await referralCreator.save()
+            }
           }
+        } else {
+          console.log('referral NOT found')
+          referralStatus =
+            'The referral used seems to be invalid. User created without a referral'
         }
       } else {
-        console.log('referral NOT found')
-        referralStatus =
-          'The referral used seems to be invalid. User created without a referral'
+        referralStatus = 'User created, but the referral was invalid'
       }
     } else {
-      referralStatus = 'User created, but the referral was invalid'
+      return res.status(201).send({ token })
     }
     return res.status(201).send({ token, referralStatus })
   } catch (e) {

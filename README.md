@@ -1,19 +1,25 @@
 # Referral API service
 > A basic referral system build with NodeJS and Mongoose
 
-[![NPM Version][npm-image]][npm-url]
+Part of a cool exercise to create a API that support the creation of a front end tha handles user referral link creations and rewarding.
 
-One to two paragraph statement about your product and what it does.
+The project includes a basic crud abstraction, JWT authentication, Basic tests and Schema / Model validations. 
 
 ![](referral_capture.jpg)
 
-## Installation
+## Local installation
 
-OS X & Linux:
+After cloning the repo, go to the terminal and run *npm install* from the project directory.
 
-```sh
-npm install my-crazy-module --save
-```
+Then use a tool line Postman to test the following endpoints:
+
+##### Sign in
+POST http://localhost:3000/sigin
+{
+    "name": "John",
+    "email": "jon@gmail.com",
+    "password": "123456",
+}
 
 Windows:
 
